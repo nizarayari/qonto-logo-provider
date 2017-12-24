@@ -1,3 +1,5 @@
+import R from 'ramda';
+
 const Icon = require('../models/iconModel.js');
 const Merchant = require('../models/merchantModel.js');
 
@@ -22,7 +24,9 @@ Dummy.init = () => {
         .then(() => {
           Merchant.findMerchantById({ merchant_name: 'AIR FRANCE', merchant_id: 12345, merchant_country: 'FR', category: 'Transport', log_url: '' })
           .then((merch) => {
-            console.log('existing merch', merch);
+            const me = R.reject(R.isNil, merch);
+            debugger
+            console.log('existing merch', me);
           })
           .catch(e => console.log('something wrong with find merchant'));
         })

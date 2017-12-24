@@ -1,8 +1,5 @@
 import fetch from 'node-fetch';
 
-require('es6-promise').polyfill();
-require('isomorphic-fetch');
-
 export default class clearbitLogo {
   constructor(domain) {
     this.host = 'https://logo.clearbit.com/';
@@ -10,17 +7,16 @@ export default class clearbitLogo {
   }
 
   getLogo() {
-    const validateResponse = (response) => {
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-        return response;
+    const validateResponse = response => {
+      if (!response.ok) throw Error(response.statusText);
+      return response;
     };
     const readResponseAsBlob = (response) => {
       return response.blob();
     };
     const logError = (error) => {
       console.log('Looks like there was a problem: \n', error);
+      return null;
     }
 
     console.log(`${this.host}${this.domain}?s=128`);

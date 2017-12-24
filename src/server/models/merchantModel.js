@@ -9,7 +9,7 @@ Merchant.findMerchantById = ({ merchant_id }) => {
   const search = new GoogleSearch();
 
   return search.fetchDomain({
-    q: 'qonto',
+    q: 'AIR FRANCE',
     gl: 'fr',
     cr: 'france',
     googlehost: 'google.com',

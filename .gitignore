@@ -28,3 +28,6 @@ dist/
 
 #tmp
 tmp-*
+
+# VS Code debugger
+.vscode/

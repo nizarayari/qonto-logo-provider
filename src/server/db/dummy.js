@@ -22,13 +22,20 @@ Dummy.init = () => {
 
       return Promise.all(allMerchantPromises)
         .then(() => {
-          Merchant.findMerchantById({ merchant_name: 'AIR FRANCE', merchant_id: 12345, merchant_country: 'FR', category: 'Transport', log_url: '' })
-          .then((merch) => {
-            const me = R.reject(R.isNil, merch);
-            debugger
-            console.log('existing merch', me);
-          })
-          .catch(e => console.log('something wrong with find merchant'));
+          return Merchant.findMerchantById({ merchant_name: 'AIR FRANCE', merchant_id: 12345, merchant_country: 'FR', category: 'Transport', log_url: '' })
+            .then((merch) => {
+              const me = R.reject(R.isNil, merch);
+              console.log('result', me);
+              return me
+            })
+            .then((merch) => {
+              return Merchant.saveLogo(merch[0], 12345, 'AIR FRANCE')
+                .then((updatedmerch) => {
+                  console.log('updatedmerch', updatedmerch)
+                })
+                .catch(e => console.log('something wrong with save logo'))
+            })
+            .catch(e => console.log('something wrong with find merchant'));
         })
         .catch(e => console.log('something wrong with creating merchants'));
     })

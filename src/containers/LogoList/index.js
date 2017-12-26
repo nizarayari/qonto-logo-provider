@@ -39,27 +39,41 @@ export default class LogoList extends Component {
     //   }
     // })();
 
-    fetch('/api/icon', {
-      method: 'POST',
-      headers: {
-        Accept: 'application.json, text/plain, */*',
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        merchant_name: 'AIR FRANCE',
-        merchant_id: 200000029687,
-        merchant_country: 'FRA',
-        category: 'Transport',
-      }),
-    })
-    .then(resp => resp.json())
-    .then(data => console.log(data));
+    // fetch('/api/icon', {
+    //   method: 'POST',
+    //   headers: {
+    //     Accept: 'application.json, text/plain, */*',
+    //     'Content-type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     merchant_name: 'AIR FRANCE',
+    //     merchant_id: 200000029687,
+    //     merchant_country: 'FRA',
+    //     category: 'Transport',
+    //   }),
+    // })
+    // .then(resp => resp.json())
+    // .then(data => console.log(data));
+
+    fetch('api/icon', { headers: { Accept: 'application.json, text/plain, */*', 'Content-type': 'application/json' } })
+      .then((resp) => resp.json())
+      .then((data) => {
+        // var blobi = new Blob([arrayBuffer], {'type': 'image/png'});
+        // const reader = new FileReader();
+        // reader.onload = () => {
+        //   debugger
+        //   document.querySelector('img').src = reader.result;
+        // }
+        // reader.readAsArrayBuffer(arrayBuffer);
+        //document.querySelector('img').src = ''
+      })
   }
 
   render() {
     return (
       <div className={styles.logoList}>
         <input type="file" />
+        <img alt=" " />
       </div>
     );
   }

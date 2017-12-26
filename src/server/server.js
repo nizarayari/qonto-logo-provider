@@ -15,7 +15,6 @@ import favicon from 'serve-favicon';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import PrettyError from 'pretty-error';
-import fetch from 'isomorphic-fetch';
 
 import React from 'react';
 import ReactDOM from 'react-dom/server';
@@ -26,7 +25,7 @@ import configureStore from '../redux/store';
 import createRoutes from '../routes';
 import Html from '../components/Html';
 
-import routesIcon from './routes/routesMerchant.js';
+import routesMerchant from './routes/routesMerchant.js';
 
 // Configuration
 // --------------------------------------------------
@@ -79,7 +78,7 @@ if (__DEVELOPMENT__) {
 //     });
 // });
 
-app.use('/api/icon', routesIcon);
+app.use('/api/icon', routesMerchant);
 
 
 app.use((req, res) => {

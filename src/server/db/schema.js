@@ -21,7 +21,7 @@ sequelize
   });
 
 const Merchant = sequelize.define('Merchant', {
-  logo_url: {
+  logo: {
     type: Sequelize.STRING,
     validate: {
       isUrl: {
@@ -67,7 +67,11 @@ const Icon = sequelize.define('Icon', {
 });
 
 // will drop the tables and init them
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({
+  force: true,
+  logging: console.log,
+})
+.then(() => {
   console.log('Created tables in db.js');
   dummy.init();
 });

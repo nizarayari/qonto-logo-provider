@@ -12,7 +12,7 @@ export default class clearbitLogo {
       return response;
     };
     const readResponseAsBlob = (response) => {
-      return response.blob();
+      return response.buffer();
     };
     const logError = (error) => {
       console.log('Looks like there was a problem: \n', error);
@@ -20,7 +20,7 @@ export default class clearbitLogo {
     }
 
     console.log(`${this.host}${this.domain}?s=128`);
-    return fetch(`${this.host}${this.domain}?s=128`)
+    return fetch(`${this.host}${this.domain}?s=128`, { 'Content-Type': 'image/png' })
       .then(validateResponse)
       .then(readResponseAsBlob)
       .catch(logError);

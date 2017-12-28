@@ -69,17 +69,7 @@ if (__DEVELOPMENT__) {
   app.use(logger('combined'));
 }
 
-// app.get('/logo', (req, res) => {
-//   return fetch('https://jsonplaceholder.typicode.com/posts')
-//     .then(resp => resp.json())
-//     .then(data => {
-//       console.log(data);
-//       return res.status(200).json(data);
-//     });
-// });
-
-app.use('/api/icon', routesMerchant);
-
+app.use('/api/logo', routesMerchant);
 
 app.use((req, res) => {
   const initialState = {};

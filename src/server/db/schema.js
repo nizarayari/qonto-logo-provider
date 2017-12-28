@@ -68,12 +68,12 @@ const Icon = sequelize.define('Icon', {
 
 // will drop the tables and init them
 sequelize.sync({
-  force: false,
+  force: true,
   logging: console.log,
 })
 .then(() => {
   console.log('Created tables in db.js');
-  // dummy.init();
+  dummy.init();
 });
 
 exports.Merchant = Merchant;

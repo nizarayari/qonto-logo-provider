@@ -59,7 +59,7 @@ export default class LogoList extends Component {
     // .then(resp => resp.json())
     // .then(data => console.log(data));
 
-    fetch('api/icon', { headers: { Accept: 'application.json, text/plain, */*', 'Content-type': 'application/json' } })
+    fetch('api/logo', { headers: { Accept: 'application.json, text/plain, */*', 'Content-type': 'application/json' } })
       .then((resp) => resp.json())
       .then((data) => {
         this.setState({ list: data });

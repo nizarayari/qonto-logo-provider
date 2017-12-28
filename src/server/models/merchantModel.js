@@ -20,7 +20,7 @@ Merchant.findMerchantById = ({ merchant_id }) => {
     cr: 'france',
     googlehost: 'google.com',
     lr: 'lang_fr',
-    num: 3,
+    num: 1,
   }).then((domains) => {
     console.log('domains', domains)
     const domainPromises = domains.map((domain) => {
@@ -41,12 +41,12 @@ Merchant.saveLogo = (base, id, merchant_name) => {
       return s3.putObject({
         Bucket: 'qonto-logo',
         Body: base,
-        Key: merchant_name,
+        Key: `logo/${merchant_name}`,
         ACL: 'public-read',
       })
     })
     .then((resp) => {
-      const picUrl = `https://s3.eu-west-3.amazonaws.com/qonto-logo/${merchant_name.replace(' ', '+')}`;
+      const picUrl = `https://s3.eu-west-3.amazonaws.com/qonto-logo/logo/${merchant_name.replace(' ', '+')}`;
       console.log('Successfully uploaded package.');
       debugger
       return merg.update({

@@ -18,6 +18,15 @@ export default {
       return Merchant.findMerId(req.body.merchant_id)
         .then((mer) => {
           if (R.isNil(mer)) {
+            Merchant.createMerchant(req.body)
+              .then(merch => {
+                return Merchant.searchLogo(merch.dataValues);
+              })
+              .then(result => {
+                return Merchant.saveLogo(result[0], req.body.merchant_id);
+              })
+              .catch(e => console.log('error in creating merch'));
+
             Icon.findIconId(req.body.category)
               .then(icon => {
                 res.json(R.pick(['icon_url'], icon));

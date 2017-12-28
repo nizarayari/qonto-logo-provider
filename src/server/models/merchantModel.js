@@ -11,15 +11,14 @@ AWS.config.update({ accessKeyId: process.env.Access_Key_ID, secretAccessKey: pro
 const Merchant = module.exports;
 
 Merchant.createMerchant = merchant => db.Merchant.create(merchant);
-Merchant.findMerchantById = ({ merchant_id }) => {
+Merchant.searchLogo = ({ merchant_name, merchant_country }) => {
   const search = new GoogleSearch();
 
   return search.fetchDomain({
-    q: 'AIR FRANCE',
-    gl: 'fr',
-    cr: 'france',
-    googlehost: 'google.com',
-    lr: 'lang_fr',
+    q: merchant_name,
+    gl: merchant_country,
+    googlehost: `google.${merchant_country}`,
+    lr: `lang_${merchant_country}`,
     num: 1,
   }).then((domains) => {
     console.log('domains', domains)
@@ -31,9 +30,8 @@ Merchant.findMerchantById = ({ merchant_id }) => {
   });
 };
 
-Merchant.saveLogo = (base, id, merchant_name) => {
+Merchant.saveLogo = (base, id) => {
   let merg;
-  debugger
   return db.Merchant.findById(id)
     .then(merch => {
       merg = merch
@@ -41,18 +39,18 @@ Merchant.saveLogo = (base, id, merchant_name) => {
       return s3.putObject({
         Bucket: 'qonto-logo',
         Body: base,
-        Key: `logo/${merchant_name}`,
+        Key: `${merch.dataValues.merchant_name}`,
         ACL: 'public-read',
       })
     })
     .then((resp) => {
-      const picUrl = `https://s3.eu-west-3.amazonaws.com/qonto-logo/logo/${merchant_name.replace(' ', '+')}`;
+      const picUrl = `https://s3.eu-west-3.amazonaws.com/qonto-logo/logo/${merg.dataValues.merchant_name.replace(' ', '+')}`;
       console.log('Successfully uploaded package.');
-      debugger
       return merg.update({
         logo: picUrl,
       });
     })
+    .catch(e => console.log('error in pushing to aws'));
 }
 
 Merchant.findMerId = (id) => db.Merchant.findById(id);

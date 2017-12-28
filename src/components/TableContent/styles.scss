@@ -1,0 +1,22 @@
+/*  HOME PAGE
+--------------------------------------------------- */
+
+/* IMPORT
+--------------------------------------------------- */
+@import "../../../public/stylesheet/_settings";
+
+.tableContent {
+  width: calc(100% - 224px);
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  border-radius: 2px;
+  margin: 16px 0px 0px 10px;
+}
+
+.tableContent__logo {
+  width: 90px;
+  height: 90px;
+  margin: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}

@@ -1,22 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router';
+import AppBar from '../../components/AppBar';
+import SideNav from '../../components/SideNav';
 import LogoList from '../LogoList';
-
 import styles from './styles.scss';
 
 /**
  * Home
  *
  * This container is in charge of displaying
- * Home page
+ * App Bar
  *
  * @return {jsx}
  */
 
 const HomePage = () => (
   <div className={styles.homePage}>
-    <h1>Finpal development</h1>
-    <LogoList />
+    <AppBar />
+    <div className={styles.homePage__container}>
+      <SideNav />
+      <LogoList />
+    </div>
   </div>
  );
 

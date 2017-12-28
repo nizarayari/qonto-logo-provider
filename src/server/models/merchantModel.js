@@ -57,3 +57,5 @@ Merchant.saveLogo = (base, id, merchant_name) => {
 
 Merchant.findMerId = (id) => db.Merchant.findById(id);
 
+Merchant.finAllMerchant = () => db.Merchant.findAll({ raw: true });
+

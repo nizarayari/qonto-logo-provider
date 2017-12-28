@@ -32,7 +32,7 @@ export default {
   output: {
     ...webpackCommonConfig.output,
     filename: 'server.js',
-    publicPath: '/',
+    publicPath: '/server/',
     libraryTarget: 'commonjs2',
   },
 

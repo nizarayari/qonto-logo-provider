@@ -152,23 +152,3 @@ if (PORT) {
 } else {
   console.error(chalk.red('==> 😭 No PORT environment variable has been specified'));
 }
-
-// (function() {
-//   var i=0;
-//   var arrLink = [];
-//   var found = 0;
-//   arrLink = document.getElementsByTagName('link');
-//   if (arrLink.length > 0) {
-//       for (i=0; i < arrLink.length; i++) {
-//           if (typeof arrLink[i].rel !== 'undefined' && arrLink[i].rel.indexOf('icon') > -1) {
-//               found = 1;
-//               window.open(arrLink[i].href);
-//           }
-//       }
-//       if (found === 0) {
-//           alert('favico Not Found');
-//       }
-//   } else {
-//       alert('favico Not Found');
-//   }
-// })();

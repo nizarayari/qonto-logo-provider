@@ -1,0 +1,30 @@
+/*  HOME PAGE
+--------------------------------------------------- */
+
+/* IMPORT
+--------------------------------------------------- */
+@import "../../../public/stylesheet/_settings";
+
+.appBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+  width: 100%;
+  height: 64px;
+  background: linear-gradient(to right,#5040b2 25%,#7a69e6 75%);
+}
+
+.appBar__logo {
+  width: 100px;
+  height: 100px;
+}
+
+.appBar__title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  line-height: 64px;
+  letter-spacing: 0px;
+}
+
+

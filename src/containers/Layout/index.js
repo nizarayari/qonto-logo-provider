@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import { applicationHeader } from '../../config';
 
@@ -15,7 +16,9 @@ import { applicationHeader } from '../../config';
 const Layout = ({ children }) => (
   <div style={{ height: '100%' }}>
     <main role="main" style={{ height: '100%' }}>
-      {children}
+      <MuiThemeProvider>
+        {children}
+      </MuiThemeProvider>
     </main>
   </div>
  );

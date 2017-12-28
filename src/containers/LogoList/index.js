@@ -1,10 +1,14 @@
 import React, { Component, PropTypes } from 'react';
+import TableContent from '../../components/TableContent';
+
 import styles from './styles.scss';
 
 export default class LogoList extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      list: [],
+    };
   }
 
   componentDidMount() {
@@ -58,6 +62,7 @@ export default class LogoList extends Component {
     fetch('api/icon', { headers: { Accept: 'application.json, text/plain, */*', 'Content-type': 'application/json' } })
       .then((resp) => resp.json())
       .then((data) => {
+        this.setState({ list: data });
         // var blobi = new Blob([arrayBuffer], {'type': 'image/png'});
         // const reader = new FileReader();
         // reader.onload = () => {
@@ -71,10 +76,7 @@ export default class LogoList extends Component {
 
   render() {
     return (
-      <div className={styles.logoList}>
-        <input type="file" />
-        <img alt=" " />
-      </div>
+      <TableContent data={this.state.list} />
     );
   }
 }

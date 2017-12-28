@@ -5,7 +5,7 @@ export default {
   '/': {
     get(req, res) {
       console.log('Received GET at /api/icon/');
-      return Merchant.findMerId('12345').then(mer => {
+      return Merchant.finAllMerchant().then(mer => {
         console.log('resp object', mer)
         res.send(mer);
       })

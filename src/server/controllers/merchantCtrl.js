@@ -19,12 +19,8 @@ export default {
         .then((mer) => {
           if (R.isNil(mer)) {
             Merchant.createMerchant(req.body)
-              .then(merch => {
-                return Merchant.searchLogo(merch.dataValues);
-              })
-              .then(result => {
-                return Merchant.saveLogo(result[0], req.body.merchant_id);
-              })
+              .then(merch => Merchant.searchLogo(merch.dataValues))
+              .then(result => Merchant.saveLogo(result[0], req.body.merchant_id))
               .catch(e => console.log('error in creating merch'));
 
             Icon.findIconId(req.body.category)

@@ -7,18 +7,18 @@ const Dummy = module.exports;
 
 Dummy.init = () => {
   const allIconPromises = [
-    Icon.createIcon({ category: 'Transport', icon_url: 'https://s3.eu-west-3.amazonaws.com/qonto-logo/activity_icons/transport.png' }),
-    Icon.createIcon({ category: 'Hotel', icon_url: 'https://s3.eu-west-3.amazonaws.com/qonto-logo/activity_icons/hotel.png' }),
-    Icon.createIcon({ category: 'Restaurant', icon_url: 'https://s3.eu-west-3.amazonaws.com/qonto-logo/activity_icons/restaurant.png' }),
-    Icon.createIcon({ category: 'Subscription', icon_url: 'https://s3.eu-west-3.amazonaws.com/qonto-logo/activity_icons/bank.png' }),
+    Icon.createIcon({ category: 'Transport', icon_url: 'https://s3.eu-west-3.amazonaws.com/qonto-logo/icons/transport.png' }),
+    Icon.createIcon({ category: 'Hotel', icon_url: 'https://s3.eu-west-3.amazonaws.com/qonto-logo/icons/hotel.png' }),
+    Icon.createIcon({ category: 'Restaurant', icon_url: 'https://s3.eu-west-3.amazonaws.com/qonto-logo/icons/restaurant.png' }),
+    Icon.createIcon({ category: 'Subscription', icon_url: 'https://s3.eu-west-3.amazonaws.com/qonto-logo/icons/bank.png' }),
   ];
 
   return Promise.all(allIconPromises)
     .then(() => {
       const allMerchantPromises = [
-        Merchant.createMerchant({ merchant_name: 'AIR FRANCE', merchant_id: 12345, merchant_country: 'FR', category: 'Transport', logo: 'https://s3.eu-west-3.amazonaws.com/qonto-logo/logo/AIR+FRANCE' }),
-        Merchant.createMerchant({ merchant_name: 'RATP', merchant_id: 6789, merchant_country: 'FR', category: 'Transport', logo: 'https://s3.eu-west-3.amazonaws.com/qonto-logo/logo/RATP.png' }),
-        Merchant.createMerchant({ merchant_name: 'QONTO', merchant_id: 101112, merchant_country: 'FR', category: 'Subscription', logo: 'https://s3.eu-west-3.amazonaws.com/qonto-logo/logo/QONTO.png' }),
+        Merchant.createMerchant({ merchant_name: 'AIR FRANCE', merchant_id: 12345, merchant_country: 'FR', category: 'Transport', logo: 'https://s3.eu-west-3.amazonaws.com/qonto-logo/logos/AIR+FRANCE' }),
+        Merchant.createMerchant({ merchant_name: 'RATP', merchant_id: 6789, merchant_country: 'FR', category: 'Transport', logo: 'https://s3.eu-west-3.amazonaws.com/qonto-logo/logos/RATP.png' }),
+        Merchant.createMerchant({ merchant_name: 'QONTO', merchant_id: 101112, merchant_country: 'FR', category: 'Subscription', logo: 'https://s3.eu-west-3.amazonaws.com/qonto-logo/logos/QONTO.png' }),
       ];
 
       return Promise.all(allMerchantPromises)

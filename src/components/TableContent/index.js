@@ -3,14 +3,16 @@ import { Link } from 'react-router';
 import {
   Table,
   TableBody,
-  TableFooter,
   TableHeader,
   TableHeaderColumn,
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
-import TextField from 'material-ui/TextField';
-import Toggle from 'material-ui/Toggle';
+
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import IconButton from 'material-ui/IconButton';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/expand-more';
 
 import styles from './styles.scss';
 
@@ -70,6 +72,17 @@ export default class TableContent extends Component {
               </TableHeaderColumn>
             </TableRow>
             <TableRow>
+              <div>
+                <IconMenu
+                  iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+                  onChange={this.handleChangeSingle}
+                  value={this.state.valueSingle}
+                >
+                  <MenuItem value="1" primaryText="Validate" />
+                  <MenuItem value="2" primaryText="Delete" />
+                  <MenuItem value="3" primaryText="Update" />
+                </IconMenu>
+              </div>
               <TableHeaderColumn tooltip="The merchant logo">Logo</TableHeaderColumn>
               <TableHeaderColumn tooltip="The merchant name">Name</TableHeaderColumn>
               <TableHeaderColumn tooltip="The merchant category">Category</TableHeaderColumn>

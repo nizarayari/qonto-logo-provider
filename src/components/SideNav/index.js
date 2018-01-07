@@ -21,7 +21,7 @@ import styles from './styles.scss';
 const SideNav = () => (
   <div className={styles.sideNav}>
     <Paper className={styles.sideNav__paper}>
-      <Menu>
+      <Menu className={styles.sideNav__paper__menu}>
         <MenuItem primaryText="CONFIRMED" leftIcon={<Done />} />
         <Divider />
         <MenuItem primaryText="TO CONFIRM" leftIcon={<Cached />} />

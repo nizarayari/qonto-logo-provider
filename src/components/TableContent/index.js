@@ -72,17 +72,15 @@ export default class TableContent extends Component {
               </TableHeaderColumn>
             </TableRow>
             <TableRow>
-              <div>
-                <IconMenu
-                  iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-                  onChange={this.handleChangeSingle}
-                  value={this.state.valueSingle}
-                >
-                  <MenuItem value="1" primaryText="Validate" />
-                  <MenuItem value="2" primaryText="Delete" />
-                  <MenuItem value="3" primaryText="Update" />
-                </IconMenu>
-              </div>
+              {/* <IconMenu
+                iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+                onChange={this.handleChangeSingle}
+                value={this.state.valueSingle}
+              >
+                <MenuItem value="1" primaryText="Validate" />
+                <MenuItem value="2" primaryText="Delete" />
+                <MenuItem value="3" primaryText="Update" />
+              </IconMenu> */}
               <TableHeaderColumn tooltip="The merchant logo">Logo</TableHeaderColumn>
               <TableHeaderColumn tooltip="The merchant name">Name</TableHeaderColumn>
               <TableHeaderColumn tooltip="The merchant category">Category</TableHeaderColumn>
